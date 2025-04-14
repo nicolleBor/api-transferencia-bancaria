@@ -29,7 +29,7 @@ class ClienteServiceTest {
 
     @Test
     void listarClientes_deveRetornarListaDeResumoDTO() {
-        Cliente cliente = new Cliente(1L, "João", "123", 50.0);
+        Cliente cliente = new Cliente(1L, "João", "123", 50.0, null);
         Mockito.when(repository.findAll()).thenReturn(List.of(cliente));
 
         List<ClienteResumoDTO> resultado = service.listarClientes();
@@ -40,7 +40,7 @@ class ClienteServiceTest {
 
     @Test
     void pesquisarCliente_clienteExiste_deveRetornarDetalhadoDTO() {
-        Cliente cliente = new Cliente(1L, "João", "123", 50.0);
+        Cliente cliente = new Cliente(1L, "João", "123", 50.0, null);
         Mockito.when(repository.findByNumeroConta("123")).thenReturn(cliente);
 
         ClienteDetalhadoDTO resultado = service.pesquisarCliente("123");

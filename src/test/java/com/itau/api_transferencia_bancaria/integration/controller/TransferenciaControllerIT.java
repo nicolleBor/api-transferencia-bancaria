@@ -33,8 +33,8 @@ class TransferenciaControllerIT {
         transferenciaRepo.deleteAll();
         clienteRepo.deleteAll();
 
-        clienteRepo.save(new Cliente(null, "João", "123", 100.0));
-        clienteRepo.save(new Cliente(null, "Maria", "456", 50.0));
+        clienteRepo.save(new Cliente(null, "João", "123", 100.0, null));
+        clienteRepo.save(new Cliente(null, "Maria", "456", 50.0, null));
     }
 
     @Test

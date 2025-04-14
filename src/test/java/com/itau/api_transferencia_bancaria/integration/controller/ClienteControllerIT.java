@@ -2,6 +2,7 @@ package com.itau.api_transferencia_bancaria.integration.controller;
 
 import com.itau.api_transferencia_bancaria.model.Cliente;
 import com.itau.api_transferencia_bancaria.repository.ClienteRepository;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ class ClienteControllerIT {
     @BeforeEach
     void setup() {
         repository.deleteAll();
-        repository.save(new Cliente(null, "João", "123", 100.0));
+        repository.save(new Cliente(null, "João", "123", 100.0, null));
     }
 
     @Test

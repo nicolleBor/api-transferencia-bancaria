@@ -38,7 +38,7 @@ class TransferenciaServiceTest {
     @Test
     void transferir_mesmaConta_deveLancarExcecao() {
         TransferenciaRequestDTO dto = new TransferenciaRequestDTO("123", "123", 50.0);
-        Cliente cliente = new Cliente(1L, "João", "123", 100.0);
+        Cliente cliente = new Cliente(1L, "João", "123", 100.0, null);
         Mockito.when(clienteRepo.findByNumeroConta("123")).thenReturn(cliente);
 
         assertThrows(TransferenciaInvalidaException.class, () -> service.transferir(dto));
@@ -47,8 +47,8 @@ class TransferenciaServiceTest {
     @Test
     void transferir_valorExcedente_deveLancarExcecao() {
         TransferenciaRequestDTO dto = new TransferenciaRequestDTO("123", "456", 200.0);
-        Cliente origem = new Cliente(1L, "João", "123", 500.0);
-        Cliente destino = new Cliente(2L, "Maria", "456", 100.0);
+        Cliente origem = new Cliente(1L, "João", "123", 500.0, null);
+        Cliente destino = new Cliente(2L, "Maria", "456", 100.0, null);
         Mockito.when(clienteRepo.findByNumeroConta("123")).thenReturn(origem);
         Mockito.when(clienteRepo.findByNumeroConta("456")).thenReturn(destino);
 
@@ -58,8 +58,8 @@ class TransferenciaServiceTest {
     @Test
     void transferir_saldoInsuficiente_deveLancarExcecao() {
         TransferenciaRequestDTO dto = new TransferenciaRequestDTO("123", "456", 60.0);
-        Cliente origem = new Cliente(1L, "João", "123", 50.0);
-        Cliente destino = new Cliente(2L, "Maria", "456", 100.0);
+        Cliente origem = new Cliente(1L, "João", "123", 50.0, null);
+        Cliente destino = new Cliente(2L, "Maria", "456", 100.0, null);
         Mockito.when(clienteRepo.findByNumeroConta("123")).thenReturn(origem);
         Mockito.when(clienteRepo.findByNumeroConta("456")).thenReturn(destino);
 
@@ -69,8 +69,8 @@ class TransferenciaServiceTest {
     @Test
     void transferir_sucesso_deveRetornarDTO() {
         TransferenciaRequestDTO dto = new TransferenciaRequestDTO("123", "456", 50.0);
-        Cliente origem = new Cliente(1L, "João", "123", 100.0);
-        Cliente destino = new Cliente(2L, "Maria", "456", 100.0);
+        Cliente origem = new Cliente(1L, "João", "123", 100.0, null);
+        Cliente destino = new Cliente(2L, "Maria", "456", 100.0, null);
 
         Mockito.when(clienteRepo.findByNumeroConta("123")).thenReturn(origem);
         Mockito.when(clienteRepo.findByNumeroConta("456")).thenReturn(destino);
