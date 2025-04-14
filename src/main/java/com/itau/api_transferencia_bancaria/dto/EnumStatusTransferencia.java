@@ -6,5 +6,6 @@ public enum EnumStatusTransferencia
     SALDO_INSUFICIENTE,
     VALOR_EXCEDENTE,
     MESMA_CONTA,
+    CONCORRENCIA,
     ERRO
 }

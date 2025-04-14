@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/transferencia")
+@RequestMapping("api/v1/transferencia")
 public class TransferenciaController {
-
     private final TransferenciaRepository repository;
     private final TransferenciaService transferenciaService;
+
     public TransferenciaController(TransferenciaRepository repository, TransferenciaService transferenciaService) {
         this.repository = repository;
         this.transferenciaService = transferenciaService;

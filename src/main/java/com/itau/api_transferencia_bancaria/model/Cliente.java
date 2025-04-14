@@ -19,6 +19,8 @@ public class Cliente {
     @Column(unique = true)
     private String numeroConta;
     private Double saldoConta;
+    @Version
+    private Long versao;
 
     public Cliente(ClienteResumoDTO clienteResumoDTO){
         this.id = clienteResumoDTO.getId();
